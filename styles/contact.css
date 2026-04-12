@@ -42,3 +42,9 @@
 .contact-form .submit-btn:hover {
     background-color: #6a7f6a;
 }
+
+
+.contact-details {
+    margin-top: 1rem;
+    text-align: left;
+}
