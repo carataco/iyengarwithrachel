@@ -1,4 +1,3 @@
-/* Contact Page Styles */
 .contact {
     text-align: center;
     padding: 2rem 1rem 1rem;
@@ -9,6 +8,11 @@
     flex-direction: column;
     align-items: center;
     gap: 0.8rem;
+}
+
+/* FIX: remove default paragraph spacing */
+.contact-container p {
+    margin: 0;
 }
 
 .contact-form {
@@ -44,8 +48,7 @@
     background-color: #6a7f6a;
 }
 
-
 .contact-details {
-    margin-top: 0;
-    text-align: right;
+    text-align: left;
+    align-self: flex-start;
 }
