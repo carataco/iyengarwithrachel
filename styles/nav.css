@@ -1,20 +1,22 @@
-/* Navigation Bar */
+/* Navigation Bar Wrapper */
 .nav-wrapper {
     width: 100%;
     background-color: var(--white-bg-color);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    justify-content: space-between;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04); /* Softer, modern shadow */
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    position: relative;
+    z-index: 100;
 }
 
+/* Branding & Headers Layout */
 .nav-headers {
     display: flex;
     justify-content: space-between;
-    gap: 10px;
-    flex-wrap: wrap;
     align-items: center;
+    padding: 1.25rem 2rem;
+    gap: 1.5rem;
+    flex-wrap: wrap;
 }
 
 .nav-header {
@@ -23,138 +25,189 @@
     align-items: center;
 }
 
-/* Main title */
+/* Main Brand Title */
 nav .main-title {
-    font-size: 45px;
+    font-size: 2.5rem; /* Converted to scalable rem units */
     color: var(--primary-color);
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+}
+
+/* Links Container */
+.nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem; /* Clean modern spacing instead of filling space rigidly */
+    background-color: var(--white-bg-color); /* Swapped to white bg for a cleaner aesthetic */
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 0.75rem 2rem;
     font-family: 'Playfair Display', serif;
 }
 
 .nav-link {
-    flex: 1;
-    text-align: center;
+    position: relative;
 }
 
-/* Navigation links container */
-.nav-links {
-    display: flex;
-    font-family: 'Playfair Display', serif;
-    justify-content: space-between; /* or 'stretch' if needed */
-    align-items: center;
-    flex-wrap: wrap;
-    background-color: var(--primary-color);
-    flex-basis: 100%;
-}
-
-/* Individual link styles */
+/* Individual Link Styles */
 .nav-links a {
-    display: block;
-    width: 100%;
-    font-size: 1.4rem;
+    display: inline-block;
+    font-size: 1.1rem;
     text-decoration: none;
-    color: #222;
-    font-weight: bold;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    line-height: 1;
+    color: #374151; /* Dark slate gray instead of harsh #222 */
+    font-weight: 500;
+    padding: 0.5rem 0.25rem;
+    transition: color 0.2s ease;
 }
 
-/* Dropdown styles */
+/* Elegant Underline Hover Effect */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.nav-links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* Dropdown Menu Styles */
+.dropdown {
+    position: relative;
+}
+
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: white;
-    min-width: 180px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    text-align: left;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--white-bg-color);
+    min-width: 200px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    padding: 0.5rem 0;
+    margin-top: 0.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.03);
 }
 
 .dropdown-content li {
+    list-style: none;
+}
+
+.dropdown-content a {
     display: block;
+    padding: 0.75rem 1.2rem;
+    font-size: 1rem;
+    color: #4b5563;
+    font-family: sans-serif; /* Cleaner reading experience for UI dropdowns */
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.dropdown-content a::after {
+    display: none; /* Disables underline effect inside dropdown */
 }
 
 .dropdown-content a:hover {
-    background-color: var(--primary-color);
-    color: white;
+    background-color: #f3f4f6;
+    color: var(--primary-color);
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
-.dropdown {
-    position: relative;
-    display: inline-block;
+/* Social Media Section */
+#social-media {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
 }
 
-/* Social media icons */
-#social-media{
-    align-self: flex-end;
-}
-
-/* Image styles */
-img[src="images/Instagram-Logo.png"] {
-    width: 75px; 
-    height: auto;
-}
-
+/* Optimized, uniform icon dimensions */
+img[src="images/Instagram-Logo.png"],
 img[src="images/facebook-logo.png"] {
-    width: 75px; 
-    height: auto;
+    width: 32px; /* Scaled down for a subtle, high-end profile look */
+    height: 32px;
+    object-fit: contain;
+    opacity: 0.7;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+img[src="images/Instagram-Logo.png"]:hover,
+img[src="images/facebook-logo.png"]:hover {
+    opacity: 1;
+    transform: translateY(-1px);
 }
 
 img[src="images/logo.png"] {
-    width: 150px;
+    width: 120px;
     height: auto;
 }
 
+/* Mobile Hamburger Toggle Layout */
 .hamburger-wrapper {
     display: none;
     width: 100%;
     justify-content: center;
-  }
+    background-color: var(--white-bg-color);
+    padding-bottom: 1rem;
+}
 
 .hamburger {
-    display: none; /* hidden by default */
-    font-size: 1.8rem;
+    display: none;
+    font-size: 1.5rem;
     color: white;
     background-color: var(--primary-color);
     border: none;
     cursor: pointer;
-    margin: 10px;
-    padding: 0;
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-    transition: background-color 0.3s ease;
-  }
-  
+    box-shadow: 0 4px 10px rgba(125, 146, 125, 0.3);
+    transition: background-color 0.2s, transform 0.1s;
+}
 
-/* On small screens, stack the links and remove separators */
+.hamburger:active {
+    transform: scale(0.95);
+}
+
+/* Responsive Styles for Mobile/Tablets */
 @media (max-width: 768px) {
+    .nav-headers {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        padding: 1.5rem 1rem 0.5rem;
+        gap: 1rem;
+    }
 
     .hamburger-wrapper {
-        display: flex; /* show and center only on small screens */
-      }
-    
-    .nav-headers {
-    flex-direction: column; /* optional: stacks elements vertically */
+        display: flex;
     }
 
     .hamburger {
         display: flex;
-      }
-
-    .nav-headers {
-        justify-content: center;
     }
 
-    .main-title {
-        font-size: 35px;
+    nav .main-title {
+        font-size: 2rem;
         text-align: center;
         width: 100%;
     }
@@ -163,41 +216,49 @@ img[src="images/logo.png"] {
         display: none;
         flex-direction: column;
         width: 100%;
-        padding: 10px 0;
+        gap: 0;
+        padding: 0;
+        border-bottom: none;
     }
 
     .nav-links.active {
         display: flex;
-      }
-
-    .nav-links a {
-        font-size: 1.2rem;
     }
 
-    /* Remove separator on small screens */
-    .nav-link {
-        border-right: none;
-        padding-right: 0;
+    .nav-links a {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+        padding: 1rem;
+        font-size: 1.2rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    }
+
+    .nav-links a::after {
+        display: none; /* Disables standard hover underline styling on mobile items */
+    }
+
+    .dropdown-content {
+        position: static;
+        transform: none;
+        box-shadow: none;
+        width: 100%;
+        background-color: #f9fafb;
+        border-radius: 0;
+        padding: 0;
+        border: none;
+    }
+
+    .dropdown-content a {
+        padding-left: 2rem;
     }
 
     #social-media {
-        align-self: center;
-        margin-bottom: 10px;
-    }
-
-    /* Adjust image sizes on small screens */
-    img[src="images/Instagram-Logo.png"] {
-        width: 50px; 
-        height: auto;
-    }
-
-    img[src="images/facebook-logo.png"] {
-        width: 50px; 
-        height: auto;
+        margin-top: 0.5rem;
     }
 
     img[src="images/logo.png"] {
-        width: 125px;
-        height: auto;
+        width: 100px;
     }
 }

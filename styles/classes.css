@@ -1,66 +1,93 @@
-/* About Section */
+/* Classes Section */
 .classes {
     display: flex;
-    text-align: center;
-    margin: auto;
+    margin: 0 auto;
     max-width: 900px;
     justify-content: center;
-  }
-  
-  .classes-flex {
+}
+
+.classes-flex {
     display: flex;
     flex-direction: column;     /* Stack on small screens */
     align-items: center;        /* Center image and text horizontally */
     text-align: center;
-  }
-  
-  .classes-flex img {
-    width: 250px;
-    height: 250px;
-    border-radius: 10%;
+    gap: 2rem;                  /* Clean spacing instead of rigid margins */
+}
+
+.classes-flex img {
+    width: 260px;               /* Sized to match the welcome image */
+    height: 260px;
+    border-radius: 16px;        /* Smooth, modern corners matching the home page */
     object-fit: cover;
     object-position: top;
-  }
-  
-  .classes-text {
-    max-width: 700px;
-    margin-top: 1rem;           /* Add space between image and text */
-  }
-  
-  @media (min-width: 768px) {
-    .classes-flex {
-      flex-direction: row;      /* Side-by-side on large screens */
-      align-items: flex-start;      /* Vertically align image & text */
-      text-align: left;
-    }
-  
-    .classes-text {
-      margin-top: 0;            /* Remove top margin */
-      margin-left: 2rem;        /* Space between image and text */
-    }
-  }
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); /* Soft depth */
+}
+
+.classes-text {
+    max-width: 600px;           /* Optimized line-length for easier reading */
+}
+
+.classes-text h2 {
+    font-size: 1.8rem;
+    color: #1f2937;
+    margin-bottom: 0.5rem;
+}
 
 /* Underscored headers */
 .underscored {
-  display: inline-block;           /* border fits text width */
-  border-bottom: 2px solid #000;  /* underline */
-  padding-bottom: 2px;            /* space between text and underline */
-  margin: 1rem 0 0.5rem 0;        /* top and bottom spacing */
+    display: inline-block;
+    /* Replaced harsh black underline with a softer, brand-colored modern accent line */
+    border-bottom: 3px solid var(--primary-color);  
+    padding-bottom: 4px;            
+    margin: 1.5rem 0 0.75rem 0;        
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #1f2937;
 }
 
 /* Paragraph spacing */
 .classes-text p {
-  margin: 0 0 1rem 0;              /* remove extra top margin, set bottom spacing */
+    color: #4b5563;             /* Gentle, modern text color */
+    line-height: 1.7;
+    margin: 0 0 1.25rem 0;      /* Slightly more breathing room */
 }
 
 /* Lists */
 .classes-text ul {
-  margin: 0 0 1rem 0;        /* remove default left margin */
-  padding-left: 1.2rem;      /* indent bullets slightly */
-  list-style-position: inside; /* ensures bullet stays with the text */
+    margin: 0 0 1.5rem 0;        
+    padding-left: 0;            /* Reset left padding to look cleaner with modern alignment */
+    list-style-type: none;      /* Custom modern bullet setup below */
 }
 
 .classes-text li {
-  margin: 0.3rem 0;           /* spacing between items */
-  line-height: 1.5;           /* optional, makes text more readable */
+    position: relative;
+    padding-left: 1.25rem;      /* Make room for custom bullet */
+    margin: 0.5rem 0;           
+    line-height: 1.6;           
+    color: #4b5563;
+}
+
+/* Subtle, modern minimalist bullet points using your brand green */
+.classes-text li::before {
+    content: "•";
+    color: var(--primary-color);
+    font-weight: bold;
+    display: inline-block;
+    width: 1rem;
+    position: absolute;
+    left: 0;
+}
+
+/* Responsive Layout Adjustments */
+@media (min-width: 768px) {
+    .classes-flex {
+        flex-direction: row;      /* Side-by-side on large screens */
+        align-items: flex-start;  /* Align to the top for an editorial look */
+        text-align: left;
+        gap: 3rem;                /* Beautiful breathing room on desktop */
+    }
+
+    .classes-text {
+        /* Margins are removed here because 'gap' on .classes-flex handles it perfectly */
+    }
 }

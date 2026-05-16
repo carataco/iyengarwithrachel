@@ -1,62 +1,100 @@
 /* Testimonials Section */
 .testimonials {
-  text-align: center;
-  margin: 2rem auto;
-  max-width: 900px; 
+    text-align: center;
+    margin: 3rem auto;
+    max-width: 1000px; /* Slightly wider to let 3 cards breathe comfortably */
+    padding: 0 1rem;
 }
 
 .testimonials-heading {
-  font-size: 2rem;
-  color: var(--primary-color);
-  margin-bottom: 1.5rem;
+    font-size: 2rem;
+    color: #1f2937; /* Dark slate text for a cleaner, high-contrast headline */
+    margin-bottom: 2.5rem;
+    font-family: 'Playfair Display', serif; /* Optional matching serif title */
+    letter-spacing: -0.01em;
 }
 
+/* Flex Grid Container */
 .testimonial-grid {
-  display: flex;
-  flex-direction: row;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  justify-content: center;
+    display: flex;
+    flex-direction: row;
+    gap: 1.75rem; /* Slightly larger gap for breathing room */
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
+/* Individual Testimonial Cards */
+.testimonial {
+    background-color: var(--white-bg-color);
+    /* Replaced harsh green border and shadow with clean, modern depth elements */
+    border: 1px solid rgba(0, 0, 0, 0.04); 
+    border-radius: 16px; /* Smooth modern corners matching the entire layout */
+    padding: 2rem;
+    text-align: left;
+    flex: 1 1 calc(33.333% - 1.75rem);
+    min-width: 280px;
+    max-width: 320px; /* Increased slightly so long text doesn't look overly narrow */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04); 
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Elegant Lift Feedback on Hover */
+.testimonial:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Reviewer Name */
+.testimonial h3 {
+    font-size: 1.15rem;
+    color: var(--primary-color); /* Swapped brand green here to act as a sleek accent */
+    font-weight: 600;
+    margin-top: 1.25rem;
+    margin-bottom: 0;
+    letter-spacing: -0.01em;
+}
+
+/* Review Text Block */
+.testimonial p {
+    font-family: "Georgia", Cambria, serif; /* Editorial serif font for an authentic quote feel */
+    font-style: italic;
+    color: #4b5563; /* Softer gray text for easier reading */
+    line-height: 1.7;
+    margin: 0;
+    flex-grow: 1;
+}
+
+/* Optional: Subtle quotes icon element if you want to add a premium touch later */
+.testimonial p::before {
+    content: "“";
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    opacity: 0.15;
+    position: absolute;
+    top: 0.5rem;
+    left: 1rem;
+    line-height: 1;
+}
 
 .testimonial {
-  background-color: var(--white-bg-color);
-  border: 1px solid var(--primary-color);
-  border-radius: 12px;
-  padding: 1.75rem;
-  text-align: left;
-  flex: 1 1 calc(33.33% - 1.5rem);
-  min-width: 280px;
-  max-width: 280px;
-  box-shadow: 0 6px 14px var(--primary-color);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* Setup container for absolute quote mark if used */
 }
 
-.testimonial:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-.testimonial h3 {
-  font-size: 1.2rem;
-  color: #333;
-  margin-bottom: 0.5rem;
-}
-
-.testimonial p {
-  font-style: italic;
-  color: #555;
-  line-height: 1.6;
-}
-
-
+/* Responsive Rules for Mobile/Tablets */
 @media (max-width: 768px) {
-  .testimonial-grid {
-      flex-direction: column;
-      align-items: center;
-  }
-  .testimonial {
-      width: 80%;
-}
+    .testimonial-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+    
+    .testimonial {
+        width: 100%;
+        max-width: 450px; /* Allows full layout alignment on smaller screens */
+    }
 }

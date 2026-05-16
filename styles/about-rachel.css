@@ -1,41 +1,60 @@
 /* About Section */
 .about {
     display: flex;
-    text-align: center;
-    margin: auto;
+    margin: 0 auto;
     max-width: 900px;
     justify-content: center;
-  }
-  
-  .about-flex {
+}
+
+.about-flex {
     display: flex;
     flex-direction: column;     /* Stack on small screens */
     align-items: center;        /* Center image and text horizontally */
     text-align: center;
-  }
-  
-  .about-flex img {
-    width: 250px;
-    height: 250px;
+    gap: 2rem;                  /* Modern spacing between image and content */
+}
+
+.about-flex img {
+    width: 240px;               /* Slightly adjusted for modern proportions */
+    height: 240px;
     border-radius: 50%;
     object-fit: cover;
-  }
-  
-  .about-text {
-    max-width: 700px;
-    margin-top: 1rem;           /* Add space between image and text */
-  }
-  
-  @media (min-width: 768px) {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); /* Soft depth behind the image */
+    border: 4px solid var(--white-bg-color);     /* Creates a clean "framed" look */
+    outline: 1px solid rgba(0, 0, 0, 0.05);      /* Super subtle outer ring */
+}
+
+.about-text {
+    max-width: 600px;           /* Slightly narrower for optimal reading line length */
+}
+
+.about-text h2 {
+    font-size: 1.8rem;
+    color: #1f2937;             /* Matches the main page heading color */
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+}
+
+.about-text p {
+    color: #4b5563;             /* Gentle, readable text color */
+    line-height: 1.75;
+    margin-bottom: 1.25rem;     /* Spacing between paragraphs if there are multiple */
+}
+
+.about-text p:last-child {
+    margin-bottom: 0;           /* Prevents extra bottom space */
+}
+
+/* Responsive Layout Adjustments */
+@media (min-width: 768px) {
     .about-flex {
-      flex-direction: row;      /* Side-by-side on large screens */
-      align-items: center;      /* Vertically align image & text */
-      text-align: left;
+        flex-direction: row;    /* Side-by-side on large screens */
+        align-items: center;    /* Vertically align image & text */
+        text-align: left;
+        gap: 3rem;              /* Generous breathing room on desktop */
     }
-  
+
     .about-text {
-      margin-top: 0;            /* Remove top margin */
-      margin-left: 2rem;        /* Space between image and text */
+        /* Margins are removed here because 'gap' on .about-flex handles it perfectly */
     }
-  }
-  
+}

@@ -1,72 +1,100 @@
 /* Timetable Section */
 .timetable {
     text-align: center;
-    margin: 2rem auto;
-    max-width: 900px;
+    margin: 3rem auto;
+    max-width: 1000px; /* Expanded slightly to fit 3 cards side-by-side elegantly */
+    padding: 0 1rem;
 }
 
 .timetable-heading {
     font-size: 2rem;
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
+    color: #1f2937; /* Dark slate gray for better editorial legibility */
+    margin-bottom: 2.5rem;
+    font-family: 'Playfair Display', serif; /* Optional matching serif title styling */
+    letter-spacing: -0.01em;
 }
 
 .timetable-container {
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 1.75rem; /* Clean grid separation space */
     flex-wrap: wrap;
 }
 
+/* Individual Class Card Modules */
 .class-card {
     background-color: var(--white-bg-color);
-    border: 1px solid var(--primary-color);
-    border-radius: 12px;
-    padding: 1.75rem;
+    /* Replaced harsh colored borders and heavy green drop shadows with clean UI depth */
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    border-radius: 16px; /* Soft modern corners matching the rest of your system */
+    padding: 2rem;
     text-align: left;
-    width: 30%;
+    width: calc(33.333% - 1.75rem); /* Flawless math alignment based on container gaps */
     min-width: 280px;
-    box-shadow: 0 6px 14px var(--primary-color);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-sizing: border-box;
 }
 
+/* Elegant Hover Interactions */
 .class-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
 
 .class-title {
-    font-size: 1.5rem;
-    color: #333;
-    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+    color: #1f2937;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
 }
 
+/* Class Logistics List (Time, Day, Level etc.) */
 .class-details {
     list-style: none;
     padding: 0;
-    margin-bottom: 1rem;
+    margin: 0 0 1.25rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; /* Clean inline row gaps */
 }
 
 .class-details li {
-    font-size: 1rem;
-    color: #555;
+    font-size: 0.95rem;
+    color: #4b5563; /* Refined text gray */
+    display: flex;
+    align-items: center;
 }
 
+/* Text Labels (e.g., Time:, Location:) */
 .class-label {
-    font-weight: bold;
-    color: var(--primary-color);
+    font-weight: 600;
+    color: var(--primary-color); /* Highlight using your signature brand green */
+    margin-right: 0.5rem;
 }
 
+/* Core Class Description Text Block */
 .class-description {
-    font-size: 1rem;
-    color: #666;
+    font-size: 0.95rem;
+    color: #6b7280; /* Soft contrast styling for explanatory description rows */
+    line-height: 1.6;
+    border-top: 1px solid rgba(0, 0, 0, 0.05); /* Adds a subtle organizational top rule */
+    padding-top: 1rem;
+    margin-top: 1rem;
 }
 
+/* Mobile & Tablet Layout Sizing Adjustments */
 @media (max-width: 768px) {
     .timetable-container {
         flex-direction: column;
         align-items: center;
+        gap: 1.5rem;
     }
+    
     .class-card {
-        width: 80%;
+        width: 100%;
+        max-width: 450px; /* Allows the flex blocks to map clean layout widths on mobile screens */
     }
 }

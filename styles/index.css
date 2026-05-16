@@ -1,29 +1,37 @@
-/* About Section */
+/* Index Welcome Section */
 .welcome-flex {
     display: flex;
+    flex-direction: column;     /* Stack elements vertically on mobile */
+    align-items: center;        /* Centered layout for small screens */
     text-align: center;
-    margin: auto;
+    margin: 0 auto;
     max-width: 900px;
-    /* padding: 0 1rem; */
+    gap: 2rem;                  /* Fluid spacing instead of hardcoded margins */
 }
 
+.welcome-text {
+    max-width: 600px;           /* Prevents line lengths from getting uncomfortably wide */
+}
 
+.welcome-text h1, 
+.welcome-text h2 {
+    font-size: 2rem;
+    color: #1f2937;             /* Dark, sophisticated gray */
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;    /* Slightly tighter tracking for a premium headline feel */
+}
 
-/* .welcome-text {
-    max-width: 700px;
-    text-align: left;
-    margin-right: 10px;
-} */
+.welcome-text p {
+    color: #4b5563;             /* Softer, readable body text */
+    line-height: 1.75;
+}
 
-
-
+/* Responsive Tablet & Desktop Adjustments */
 @media (min-width: 768px) {
     .welcome-flex {
-        flex-direction: row;
-        align-items: flex-start;
+        flex-direction: row;      /* Smoothly switch side-by-side on larger displays */
+        align-items: center;      /* Vertically balance the graphic/image with text */
         text-align: left;
-    }
-    .welcome-text {
-        margin-left: 2rem;
+        gap: 3rem;                /* Generous breathing room on desktop screens */
     }
 }
