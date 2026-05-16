@@ -54,7 +54,4 @@
         gap: 3rem;              /* Generous breathing room on desktop */
     }
 
-    .about-text {
-        /* Margins are removed here because 'gap' on .about-flex handles it perfectly */
-    }
 }

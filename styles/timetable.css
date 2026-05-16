@@ -31,7 +31,7 @@
     text-align: left;
     width: calc(33.333% - 1.75rem); /* Flawless math alignment based on container gaps */
     min-width: 280px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 10px 30px var(--primary-color);
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
                 box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     box-sizing: border-box;

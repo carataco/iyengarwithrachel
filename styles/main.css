@@ -43,7 +43,7 @@ body {
 /* Hero Section */
 .hero {
     text-align: center;
-    padding: 1rem 0;
+    padding: 0rem 0;
 }
 
 .hero blockquote {
@@ -73,12 +73,15 @@ body {
     justify-content: center;
 }
 
+/* Base Settings for Mobile and Small Screens */
 .welcome-flex {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column;     /* Stack elements vertically on mobile */
+    align-items: center;        /* Centered layout for small screens */
     text-align: center;
-    gap: 2rem; /* Clean gap handling */
+    margin: 0 auto;
+    max-width: 900px;
+    gap: 2rem;                  /* Fluid spacing instead of hardcoded margins */
 }
 
 .welcome-flex img {
@@ -87,17 +90,27 @@ body {
     border-radius: 16px; /* Smooth modern corners */
     object-fit: cover;
     object-position: top;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
 }
 
 .welcome-text {
     max-width: 600px;
 }
 
+/* CLEANED UP AND MERGED H2 STYLE: No more overwrites */
+.welcome-text h1,
 .welcome-text h2 {
-    font-size: 1.75rem;
-    margin-bottom: 1rem;
-    color: #1f2937;
+    font-family: "Georgia", Cambria, serif; /* Soft, warm serif instead of sharp sans-serif */
+    font-size: 2rem;                       /* Elegant editorial size */
+    font-weight: 500;                       /* Softened weight */
+    color: var(--primary-color);            /* Tranquil brand green */
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.01em;
+}
+
+.welcome-text p {
+    color: #4b5563;             /* Softer, readable body text */
+    line-height: 1.75;
 }
 
 /* Section Divider */
@@ -117,12 +130,20 @@ footer {
     color: var(--text-muted);
 }
 
-/* Responsive Queries */
+/* Responsive Tablet & Desktop Adjustments (Merged into one clean media query) */
 @media (min-width: 768px) {
     .welcome-flex {
-        flex-direction: row;
-        align-items: center;
+        flex-direction: row;      /* Smoothly switch side-by-side on larger displays */
+        align-items: flex-start;  /* Forces image top to snap perfectly to the text top */
         text-align: left;
+        gap: 3.5rem;              /* Generous breathing room on desktop screens */
+    }
+
+    .welcome-flex img {
+        width: 100% !important;
+        max-width: 360px !important; /* Scales up the image size beautifully */
+        height: auto !important;
+        aspect-ratio: 1 / 1 !important; /* Explicitly locks it into a perfect square layout */
     }
 
     .welcome-text {

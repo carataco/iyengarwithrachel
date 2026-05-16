@@ -2,11 +2,14 @@
 .nav-wrapper {
     width: 100%;
     background-color: var(--white-bg-color);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04); /* Softer, modern shadow */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04); 
     display: flex;
     flex-direction: column;
     position: relative;
     z-index: 100;
+    
+    /* THE ACCENT FRAME: Grounds the navigation perfectly against your site's green background */
+    border-top: 4px solid var(--primary-color); 
 }
 
 /* Branding & Headers Layout */
@@ -86,6 +89,7 @@ nav .main-title {
 }
 
 /* Dropdown Menu Styles */
+/* Dropdown Menu Styles */
 .dropdown {
     position: relative;
 }
@@ -101,10 +105,18 @@ nav .main-title {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
     border-radius: 12px;
     padding: 0.5rem 0;
-    margin-top: 0.5rem;
-    border: 1px solid rgba(0, 0, 0, 0.03);
+    
+    /* 1. REMOVE THIS DEAD ZONE MARGIN: */
+    /* margin-top: 0.5rem; */ 
+    
+    /* 2. ADD THIS INSTEAD: Creates an invisible, interactive hit-box bridge */
+    border-top: 8px solid transparent; 
+    background-clip: padding-box; /* Prevents background color from filling the transparent border */
+    
+    border-left: 1px solid rgba(0, 0, 0, 0.03);
+    border-right: 1px solid rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
 }
-
 .dropdown-content li {
     list-style: none;
 }
@@ -186,6 +198,19 @@ img[src="images/logo.png"] {
 
 .hamburger:active {
     transform: scale(0.95);
+}
+
+/* --- Active Page Highlight Styles --- */
+.nav-links a.active-page {
+    color: var(--primary-color) !important;
+}
+
+/* Keeps the elegant sliding underline visible underneath the current page link */
+@media (min-width: 769px) {
+    .nav-links a.active-page::after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+    }
 }
 
 /* Responsive Styles for Mobile/Tablets */

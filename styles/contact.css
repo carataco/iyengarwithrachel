@@ -1,66 +1,116 @@
-/* Contact Section */
+/* Contact Section Wrapper */
 .contact {
     text-align: center;
-    padding: 2rem 1rem;
-    max-width: 600px;
+    padding: 3rem 1rem;
+    max-width: 650px;
     margin: 0 auto;
-}
-
-.contact h2 {
-    font-size: 1.8rem;
-    color: #1f2937;
-    margin-bottom: 1.5rem;
 }
 
 .contact-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem; /* Increased for a cleaner, more breathable layout */
+    gap: 2.5rem; /* Generous breathing room */
 }
 
-/* Base paragraph styling */
-.contact-container p {
+/* Base Introductory Paragraph Styling */
+.contact-container > p {
     margin: 0;
-    max-width: 600px;
-    color: #4b5563; /* Softer, modern text color */
-    line-height: 1.6;
+    max-width: 520px; /* Kept slightly tighter for a beautiful, readable paragraph measure */
+    color: #4b5563; 
+    font-size: 1.1rem;
+    line-height: 1.75;
 }
 
-/* Contact Details Block */
+/* Premium Contact Details Card Block */
 .contact-details {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem; /* Even spacing between each contact method */
-    margin-top: 0.5rem;
+    gap: 1.25rem; /* Spacious row separating email and phone */
+    background-color: var(--white-bg-color);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    border-radius: 20px; /* Elegant, soft rounded corners */
+    padding: 2.5rem 3rem; /* Generous internal card padding */
+    width: 100%;
+    box-shadow: 0 10px 30px var(--primary-color);; 
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-sizing: border-box;
 }
 
-/* Flexible, clean alignment for label + value pairs */
+/* Flexible, Clean Row Alignment */
 .contact-details p {
     margin: 0;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between; /* Pushes Label to left, Value to right for an editorial look */
     align-items: center;
-    gap: 0.75rem;
+    gap: 1.5rem;
     font-size: 1.05rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03); /* Subtle dividing horizontal track rule */
 }
 
-/* Strong labels (e.g., Email:, Phone:) given a subtle premium touch */
+/* Remove bottom border from the very last element */
+.contact-details p:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+/* Strong Labels (e.g., Email:, Phone:) given a subtle premium touch */
 .contact-details strong {
-    color: var(--primary-color); /* Uses your brand green for details */
+    color: var(--primary-color); /* Signature brand green */
     font-weight: 600;
-    min-width: 70px; /* Keeps the text aligned nicely if stacked */
+    letter-spacing: 0.02em;
+    font-size: 0.95rem;
+    text-transform: uppercase; /* Cleaner modern dashboard layout aesthetic */
 }
 
-/* If you have links inside contact details (like an email address) */
+/* Contact Links (Email Address & Phone Number) */
 .contact-details a {
     color: #1f2937;
+    font-weight: 500;
     text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.2s, color 0.2s;
+    position: relative;
+    padding: 0.25rem 0;
+    transition: color 0.2s ease;
+}
+
+/* Elegant Underline Hover Interaction Effect */
+.contact-details a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1.5px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
 }
 
 .contact-details a:hover {
     color: var(--primary-color);
-    border-bottom-color: var(--primary-color);
+}
+
+.contact-details a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* Responsive Rules for Small Mobile Screens */
+@media (max-width: 480px) {
+    .contact {
+        padding: 1.5rem 0.5rem;
+    }
+    
+    .contact-details {
+        padding: 2rem 1.5rem; /* Snug, clean fit inside narrow phone displays */
+    }
+    
+    .contact-details p {
+        flex-direction: column; /* Stack label above the value on tiny screens */
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
 }
